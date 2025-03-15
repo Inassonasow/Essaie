@@ -4,24 +4,27 @@
     overflow: auto;
 }
 
-/* .product-image {
-  height: 150px;
-  overflow: hidden;
+.badge {
+  position: absolute; /* Positionne le badge par rapport à son parent */
+  top: 10px; /* Distance du haut */
+  right: 10px; /* Distance de la droite */
+  background-color: red; /* Couleur de fond par défaut */
+  color: white; /* Couleur du texte */
+  padding: 5px 10px; /* Espacement interne */
+  border-radius: 15px; /* Coins arrondis */
+  font-size: 12px; /* Taille du texte */
+  font-weight: bold; /* Texte en gras */
+  text-transform: uppercase; /* Texte en majuscules */
 }
 
-.product-image img {
-  margin-top: 5px;
-  margin-left: 10px;
-  width: 90%;
-  height: 100%;
-  object-fit: cover;
-} */
- 
-/* .box {
-  width: 500px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-} */
+.INSTOCK{
+  background-color: green; /* Couleur pour "INSTOCK" */
+}
 
- 
+.LOWSTOCK{
+  background-color: red; /* Couleur pour "SOLD OUT" */
+}
+
+.OUTOFSTOC{
+  background-color: orange; /* Couleur pour "PROMO" */
+}

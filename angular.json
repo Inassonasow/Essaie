@@ -1,4 +1,5 @@
 {
+  
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "cli": {
     "analytics": "f1199ce0-2578-487c-acb8-ea39a9095a3d"
@@ -26,6 +27,7 @@
               "src/favicon.ico",
               "src/assets",
               "src/manifest.webmanifest"
+              
             ],
             "styles": [
               "src/styles.scss",

@@ -9,7 +9,7 @@ export interface Product {
     quantity: number;
     internalReference: string;
     shellId: number;
-    inventoryStatus: "INSTOCK" | "LOWSTOCK" | "OUTOFSTOCK";
+    inventoryStatus: "INSTOCK" | "LOWSTOCK" | "OUTOFSTOCK";//Tu as trois statuts d'inventaire pour un produit
     rating: number;
     createdAt: number;
     updatedAt: number;

@@ -23,6 +23,13 @@ export class PanelMenuComponent {
         icon: 'pi pi-barcode',
         routerLink: ['/products/list']
       },
+
+      {
+        label: 'contact',
+        icon: 'pi pi-user',
+        routerLink: ['/contact']
+      },
+
       
   ]
 }

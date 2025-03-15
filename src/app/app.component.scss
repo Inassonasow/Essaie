@@ -6,3 +6,34 @@
 .btn-shopp {
   cursor: pointer;
 }
+.cart-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.cart-item .img img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.cart-item .montext {
+  margin-left: 1rem;
+}
+
+.remove-button {
+  background-color: #ff4444;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.btn {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}

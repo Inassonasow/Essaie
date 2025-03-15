@@ -1,1 +1,107 @@
-//
+.home-container {
+  min-height: 100vh;
+  overflow: visible;
+}
+
+html, body {
+  min-height: 100vh;
+  height: auto;
+  overflow-y: auto;
+}
+:host {
+  display: block;
+  height: 100%;
+  overflow: auto;
+}
+
+
+
+//css de la baniere l'image avec la fille noir tout en haut
+.banner {
+    position: relative;
+    width: 100%;
+    height: auto;
+    min-height: 300px;
+    background-image: url("https://media.istockphoto.com/id/1291100364/fr/photo/une-jeune-femme-dehors-faisant-des-emplettes-dans-la-ville.jpg?s=612x612&w=0&k=20&c=UOLK3F84fBjTsv4SYhTlnuubUeQBnffcy4mfnJ1NfDE=");
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+  }
+  
+  .banner-content {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+  }
+  .produit-container {
+    width: 100%;
+    margin-top: 20px; // Assure un espace entre la bannière et les produits
+  }
+  
+  .banner h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .banner p {
+    font-size: 1.2rem;
+  }
+  
+  .banner button {
+    background: #ff9800;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+  }
+  
+  .banner button:hover {
+    background: #e68900;
+  }
+  //fin banniere
+
+  .categories-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-around;
+  }
+  
+  .category-card {
+    width: 300px;
+    height: 200px;
+
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Centrer le texte à l'intérieur */
+    background-color: #fff;
+    padding: 10px;
+  }
+  
+  .category-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .category-card h3 {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  p-dataView {
+    max-height: none;
+    overflow: visible;
+  }
+
+  p-dataView {
+    max-height: 80vh;
+
+  }
+  

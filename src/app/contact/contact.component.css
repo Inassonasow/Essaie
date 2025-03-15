@@ -1,0 +1,40 @@
+.contact-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.p-field {
+  margin-bottom: 15px;
+}
+
+button {
+  width: 100%;
+  background-color: #007bff;
+  color: white;
+}
+
+
+/* Style pour le compteur de mots */
+.word-counter {
+  margin-top: 0.5rem; /* Espacement par rapport au champ de texte */
+  font-size: 0.875em;
+  color: #666;
+  text-align: right; /* Aligner le texte à droite */
+  text-align: center;
+}
+
+/* Style pour les messages d'erreur */
+.p-error {
+  color: red;
+  font-size: 0.875em;
+  display: block; /* Assurez-vous que les erreurs sont sur une nouvelle ligne */
+}

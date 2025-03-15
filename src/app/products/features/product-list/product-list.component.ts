@@ -46,14 +46,23 @@ export class ProductListComponent implements OnInit {
 
   ngOnInit() {
     this.productsService.get().subscribe();
+
+  
   }
 
-  public onCreate() {
+  public onCreate() {//cette methode est appeler dans le component product_list.html
     this.isCreation = true;
     this.isDialogVisible = true;
     this.editedProduct.set(emptyProduct);
   }
-
+  
+ // Méthode pour ajouter un produit au panier
+ ajout_produit_panier(product: Product) {
+  console.log("Produit ajouté au panier :", product);
+  this.productsService.ajouter_panier(product); // Appel  du service
+  alert("Produit ajouté au panier");
+  console.log('Produit ajouté dans le composant enfant :', product);
+}
   public onUpdate(product: Product) {
     this.isCreation = false;
     this.isDialogVisible = true;

@@ -1,0 +1,19 @@
+<div class="contact-container">
+  <h2>Contactez-nous</h2>
+  <form (ngSubmit)="envoyerMessage()">
+    <div class="p-field">
+      <label for="email">Email</label>
+      <input id="email" type="text" pInputText [(ngModel)]="email" name="email" (input)="validateEmail()" />
+      <!-- Afficher le message d'erreur en temps réel -->
+      <small *ngIf="emailError" class="p-error">{{ emailError }}</small>
+    </div>
+    <div class="p-field">
+      <label for="message">Message</label>
+      <textarea id="message" pInputTextarea [(ngModel)]="message" name="message" (input)="validateMessage()"></textarea>
+      <small *ngIf="messageError" class="p-error">{{ messageError }}</small>
+      <!-- Compteur de mots -->
+      <div class="word-counter">Nombre de mots : {{ wordCount }}/300</div>
+    </div>
+    <button pButton type="submit" label="Envoyer"></button>
+  </form>
+</div>

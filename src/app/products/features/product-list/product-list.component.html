@@ -1,39 +1,47 @@
-<h1 class="text-center">Liste des produits</h1>
-<p-button label="Créer produit" (onClick)="onCreate()" class="block text-center"/>
+<!--Ce code est un composant Angular qui affiche une liste de produits avec des options pour en créer, modifier ou supprimer. Il utilise PrimeNG, une bibliothèque de composants UI pour Angular.-->
+<h1 class="text-center text-2xl font-bold my-4">Liste des produits</h1>
+
+<div class="flex justify-center my-4">
+    <p-button label="Créer produit" (onClick)="onCreate()" class="p-button-success"/>
+</div>
 
 <div class="card">
-<p-dataView #dv [value]="products()" [rows]="5" >
-
+    <p-dataView #dv [value]="products()" [rows]="5">
         <ng-template pTemplate="list" let-products>
-            <div class="grid grid-cols-12 gap-4 grid-nogutter">
-                <div class="col-span-12" *ngFor="let item of products; let first = first" class="col-span-12">
-                    <div
-                        class="flex flex-col sm:flex-row sm:items-center p-6 gap-4"
-                        [ngClass]="{ 'border-t border-surface-200 dark:border-surface-700': !first }"
-                    >
-                        
-                        <div class="flex flex-col md:flex-row justify-between md:items-center flex-1 gap-6">
-                            <div class="flex flex-row md:flex-col justify-between items-start gap-2">
-                                <div>
-                                    <div class="text-lg font-medium text-surface-900 dark:text-surface-0 mt-2">{{ item.name }}</div>
+            <div class="grid grid-cols-12 gap-4">
+                <div class="col-span-12 md:col-span-6 lg:col-span-4" *ngFor="let item of products">
+                    <p-card class="shadow-lg rounded-lg overflow-hidden">
+                        <ng-template pTemplate="header">
+                            <!-- Conteneur pour l'image et le badge -->
+                            <div class="relative">
+                                <img [src]="item.image" alt="{{ item.name }}" class="w-full h-48 object-cover"/>
+                                <!-- Badge dynamique -->
+                                <div [ngClass]="{'badge': true, 'INSTOCK': item.inventoryStatus === 'INSTOCK', 'LOWSTOCK': item.inventoryStatus === 'LOWSTOCK', 'OUTOFSTOC': item.inventoryStatus === 'OUTOFSTOCK'}" class="absolute top-2 right-2">
+                                    {{ item.inventoryStatus }}
                                 </div>
-                               
                             </div>
-                            <div class="flex flex-col md:items-end gap-8">
-                               
-                               
-                            </div>
-                        </div>
-                    </div>
+                        </ng-template>
+                        <ng-template pTemplate="title">
+                            <h2 class="text-lg font-semibold text-surface-900">{{ item.name }}</h2>
+                        </ng-template>
+                        <ng-template pTemplate="content">
+                            <p class="text-gray-600">{{ item.category }}</p>
+                        </ng-template>
+                        <ng-template pTemplate="footer">
+                            <div class="flex flex-wrap gap-2 mt-4">
+                                <p-button label="Modifier" severity="secondary" (onClick)="onUpdate(item)" class="p-button-sm"/>
+                                <p-button label="Supprimer" severity="danger" (onClick)="onDelete(item)" class="p-button-sm"/>
+                                <p-button label="Ajouter au panier" severity="success" (onClick)="ajout_produit_panier(item)"/>
 
-                    <div class="flex flex-col sm:flex-row sm:items-center p-6 gap-4">
-                        <p-button label="Modifier" severity="secondary" (onClick)="onUpdate(item)"/>
-                        <p-button label="Supprimer" severity="danger" (onClick)="onDelete(item)" />
-                    </div>
+                            </div>
+                        </ng-template>
+                    </p-card>
                 </div>
             </div>
         </ng-template>
-</p-dataView>
+    </p-dataView>
+</div>
+
 <p-dialog [(visible)]="isDialogVisible"
     [style]="{ width: '50vw' }"
     header="Ajout/Edition produit">
@@ -43,6 +51,3 @@
         (cancel)="onCancel()"
     />
 </p-dialog>
-
-
-
