@@ -389,6 +389,7 @@ body {
 }
 </style>
 <div class="home-container">
+  
   <!-- Bannière -->
   <div class="banner">
     <div class="banner-content">
@@ -412,7 +413,7 @@ body {
                 <h2 class="text-lg font-semibold text-surface-900">{{ item.name }}</h2>
               </ng-template>
               <ng-template pTemplate="content">
-                <p class="text-gray-600">{{ item.price }}</p>
+                <p class="text-gray-600">{{ item.price | currency:'EUR'}}</p>
               </ng-template>
             </p-card>
           </div>

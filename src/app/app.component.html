@@ -90,65 +90,56 @@ body {
 
 </style>
 <p-toolbar [style]="{ height: '100px' }">
-    <div class="p-toolbar-group-start">
-        <img src="assets/images/Free.png" alt="logo" />
-        
-    </div>
-    <div class="p-toolbar-group-center">
-        {{ title }}
-    </div>
-   
-    <div class="p-toolbar-group-end">
-         <!-- Bouton pour ouvrir le dialogue -->
-        <button (click)="showDialog()">
-            <i class="pi pi-shopping-cart btn-shopp" style="font-size: 2rem"
-            pBadge [value]="quantPanier" severity="danger"
-         ></i>
-        </button>
-    </div>
+  <div class="p-toolbar-group-start">
+    <img src="assets/images/Free.png" alt="logo" />
+  </div>
+  <div class="p-toolbar-group-center">
+    {{ title }}
+  </div>
+  <div class="p-toolbar-group-end">
+    <button (click)="showDialog()">
+      <i class="pi pi-shopping-cart btn-shopp" style="font-size: 2rem"
+         pBadge [value]="quantPanier" severity="danger"></i>
+    </button>
+  </div>
 </p-toolbar>
-<!-- MODIFICATION : Ajout du dialogue pour afficher le panier -->
+
+<!-- Dialogue pour afficher le panier -->
 <p-dialog header="Votre Panier" [(visible)]="displayDialog" [style]="{ width: '50vw' }">
-    <!-- Si le panier contient des produits, affiche la liste -->
-    <div *ngIf="panier.length > 0; else emptyCart">
-      <div *ngFor="let product of panier" class="cart-item">
-        <div class="flex">
-          <div class="img">
-            <!-- Affiche l'image du produit si elle existe -->
-            <img *ngIf="product.image" [src]=" product.image" alt="Product Image">
-          </div>
-          <div class="montext">
-            <!-- Affiche le nom et le prix du produit -->
-            <h3>{{ product.name }}</h3>
-            <p>Prix : {{ product.price | currency:'EUR' }}</p>
-            <!-- MODIFICATION : Bouton pour retirer un produit du panier -->
-            <button (click)="removeFromCart(product.id)" class="remove-button">
-              <i class="fa-solid fa-trash"></i> Retirer
-            </button>
-          </div>
+  <div *ngIf="panier.length > 0; else emptyCart">
+    <div *ngFor="let product of panier" class="cart-item">
+      <div class="flex">
+        <div class="img">
+          <img *ngIf="product.image" [src]="product.image" alt="Product Image">
+        </div>
+        <div class="montext">
+          <h3>{{ product.name }}</h3>
+          <p>Prix : {{ product.price | currency:'EUR' }}</p>
+          <button (click)="removeFromCart(product.id)" class="remove-button">
+            <i class="fa-solid fa-trash"></i> Retirer
+          </button>
         </div>
       </div>
     </div>
-    <!-- Si le panier est vide, affiche un message -->
-    <ng-template #emptyCart>
-      <p>Votre panier est vide.</p>
-    </ng-template>
-    <!-- MODIFICATION : Pied de page du dialogue avec un bouton "Fermer" -->
-    <p-footer>
-      <button class="btn" (click)="hideDialog()">Fermer</button>
-    </p-footer>
-  </p-dialog>
-  
-  <!-- Splitter pour diviser la page en deux panneaux -->
-  <p-splitter [panelSizes]="[20, 80]" [style]="{ height: 'calc(100vh - 100px)' }">
-    <ng-template pTemplate>
-      <div class="w-full">
-        <app-panel-menu />
-      </div>
-    </ng-template>
-    <ng-template pTemplate>
-      <div class="w-full app-content">
-        <router-outlet></router-outlet>
-      </div>
-    </ng-template>
-  </p-splitter>
+  </div>
+  <ng-template #emptyCart>
+    <p>Votre panier est vide.</p>
+  </ng-template>
+  <p-footer>
+    <button class="btn" (click)="hideDialog()">Fermer</button>
+  </p-footer>
+</p-dialog>
+
+<!-- Splitter pour diviser la page en deux panneaux -->
+<p-splitter [panelSizes]="[20, 80]" [style]="{ height: 'calc(100vh - 100px)' }">
+  <ng-template pTemplate>
+    <div class="w-full">
+      <app-panel-menu />
+    </div>
+  </ng-template>
+  <ng-template pTemplate>
+    <div class="w-full app-content">
+      <router-outlet></router-outlet>
+    </div>
+  </ng-template>
+</p-splitter>

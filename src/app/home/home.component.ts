@@ -37,13 +37,28 @@ export class HomeComponent {
     price: 65
     },
     {
-      name: "Bamboo Watch",
+      name: "grey-t-shirt",
       image:"assets/images/grey-t-shirt.jpg",
       price: 65
     },
     {
-      name: "Bamboo Watch",
+      name: "lime-band",
+      image:"assets/images/lime-band.jpg",
+      price: 65
+    },
+    {
+      name: "mini-speakers",
+      image: "assets/images/mini-speakers.jpg",
+      price: 65
+    },
+    {
+      name: "painted-phone",
       image:"assets/images/painted-phone-case.jpg",
+      price: 65
+    },
+    {
+      name: "pink-band",
+      image:"assets/images/pink-band.jpg",
       price: 65
     },
   ];

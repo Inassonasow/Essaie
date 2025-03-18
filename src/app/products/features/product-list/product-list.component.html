@@ -165,6 +165,9 @@ p.text-gray-600 {
                         <ng-template pTemplate="content">
                             <p class="text-gray-600">{{ item.category }}</p>
                         </ng-template>
+                        <ng-template pTemplate="content">
+                          <p class="text-gray-600">{{ item.price | currency:'EUR' }}</p>
+                      </ng-template>
                         <ng-template pTemplate="footer">
                             <div class="flex flex-wrap gap-2 mt-4">
                                 <p-button label="Modifier" severity="secondary" (onClick)="onUpdate(item)" class="p-button-sm"/>
