@@ -1,3 +1,195 @@
+
+<style>
+  /* Styles de base pour le conteneur */
+.contact-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: linear-gradient(145deg, #f8f9fa, #ffffff);
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+/* Style du titre */
+.contact-container h2 {
+  color: #3f51b5;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+  position: relative;
+  padding-bottom: 0.8rem;
+}
+
+.contact-container h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #3f51b5, #7986cb);
+  border-radius: 3px;
+}
+
+/* Style des champs de formulaire */
+.p-field {
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.p-field label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #455a64;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.p-field:focus-within label {
+  color: #3f51b5;
+}
+
+/* Style des inputs */
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #f5f7fa;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  color: #37474f;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+  border-color: #3f51b5;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(63, 81, 181, 0.2);
+  outline: none;
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* Style pour les messages d'erreur */
+.p-error {
+  color: #f44336;
+  font-size: 0.8rem;
+  margin-top: 0.3rem;
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Style du compteur de mots */
+.word-counter {
+  text-align: right;
+  font-size: 0.8rem;
+  color: #78909c;
+  margin-top: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+/* Changement de couleur du compteur selon le nombre de mots */
+.word-counter.warning {
+  color: #ff9800;
+}
+
+.word-counter.danger {
+  color: #f44336;
+}
+
+/* Style du bouton */
+button[type="submit"] {
+  background: linear-gradient(135deg, #3f51b5, #5c6bc0);
+  border: none;
+  border-radius: 8px;
+  padding: 0.8rem 2rem;
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(63, 81, 181, 0.3);
+}
+
+button[type="submit"]:hover {
+  background: linear-gradient(135deg, #3949ab, #3f51b5);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(63, 81, 181, 0.4);
+}
+
+button[type="submit"]:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(63, 81, 181, 0.4);
+}
+
+/* Animations pour les états de focus et hover */
+.p-field:hover input,
+.p-field:hover textarea {
+  border-color: #bdbdbd;
+}
+
+/* Ajout d'un indicateur de focus */
+.p-field::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #3f51b5;
+  transition: width 0.3s ease;
+}
+
+.p-field:focus-within::after {
+  width: 100%;
+}
+
+/* Styles responsifs */
+@media (max-width: 768px) {
+  .contact-container {
+    padding: 1.5rem;
+    margin: 0 1rem;
+  }
+  
+  button[type="submit"] {
+    width: 100%;
+  }
+}
+
+/* Style pour l'état de validation en cours de saisie */
+input.ng-dirty.ng-invalid,
+textarea.ng-dirty.ng-invalid {
+  border-color: #f44336;
+  background-color: #fff8f8;
+}
+
+input.ng-dirty.ng-valid,
+textarea.ng-dirty.ng-valid {
+  border-color: #4caf50;
+  background-color: #f8fff8;
+}
+</style>
 <div class="contact-container">
   <h2>Contactez-nous</h2>
   <form (ngSubmit)="envoyerMessage()">

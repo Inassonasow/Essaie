@@ -1,3 +1,393 @@
+<style>
+  /* Variables et resets */
+:root {
+  --primary: #6366f1;
+  --primary-light: #818cf8;
+  --primary-dark: #4f46e5;
+  --secondary: #ec4899;
+  --secondary-light: #f472b6;
+  --accent: #f59e0b;
+  --light: #f3f4f6;
+  --dark: #1f2937;
+  --gray: #9ca3af;
+  --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: var(--dark);
+  background-color: #ffffff;
+  overflow-x: hidden;
+}
+
+/* Layout principal */
+.home-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Bannière */
+.banner {
+  position: relative;
+  height: 550px;
+  margin: 20px 0 60px 0;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #d946ef 100%);
+  opacity: 0.85;
+  z-index: 1;
+}
+
+.banner::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('data:image/svg+xml,%3Csvg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z" fill="white" fill-opacity="0.1" fill-rule="evenodd"/%3E%3C/svg%3E');
+  background-size: 80px 80px;
+  opacity: 0.3;
+  z-index: 0;
+}
+
+.banner-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  color: rgb(255, 255, 255);
+}
+
+.banner h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 15px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  letter-spacing: -0.025em;
+  transform: translateY(0);
+  transition: var(--transition);
+}
+
+.banner:hover h1 {
+  transform: translateY(-5px);
+}
+
+.banner p {
+  font-size: 1.625rem;
+  margin-bottom: 35px;
+  max-width: 600px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  line-height: 1.4;
+  opacity: 0.95;
+}
+
+.banner button {
+  background-color: rgb(86, 2, 134);
+  color: var(--primary-dark);
+  border: none;
+  padding: 16px 36px;
+  font-size: 1.125rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.banner button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: all 0.6s;
+  z-index: -1;
+}
+
+.banner button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  color: var(--primary);
+}
+
+.banner button:hover::before {
+  left: 100%;
+}
+
+.banner button:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Conteneur de produits */
+.products-container {
+  margin-bottom: 60px;
+  position: relative;
+}
+
+/* Titre de section avant dataview */
+.products-container::before {
+  content: "Produits en vedette";
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+  text-align: center;
+  color: var(--dark);
+  position: relative;
+}
+
+.products-container::after {
+  content: "";
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  border-radius: 3px;
+  margin-bottom: 35px;
+}
+
+/* Grid des produits */
+.grid {
+  margin-top: 60px;
+}
+
+/* Cartes de produits */
+.p-card {
+  transition: var(--transition);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 14px !important;
+  overflow: hidden;
+  border: none !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.p-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.p-card .p-card-body {
+  padding: 0;
+}
+
+.p-card .p-card-content {
+  padding: 1.25rem !important;
+}
+
+.p-card img {
+  transition: var(--transition);
+  height: 280px !important;
+  object-fit: cover;
+}
+
+.p-card:hover img {
+  transform: scale(1.08);
+}
+
+.p-card .p-card-title {
+  padding: 0 1.25rem;
+  margin-top: 1rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--dark);
+}
+
+/* Badge nouveauté */
+.p-card .p-card-title::after {
+  content: "Nouveau";
+  font-size: 0.7rem;
+  font-weight: 600;
+  background-color: var(--secondary);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 20px;
+  margin-left: 10px;
+  position: relative;
+  top: -2px;
+  display: inline-block;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: var(--transition);
+}
+
+.p-card:hover .p-card-title::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Price */
+.p-card .text-gray-600 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.75rem;
+}
+
+.p-card .text-gray-600::after {
+  content: '🛒';
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: var(--primary);
+  color: white;
+  border-radius: 50%;
+  font-size: 1.25rem;
+  transition: var(--transition);
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transform: translateY(0);
+}
+
+.p-card:hover .text-gray-600::after {
+  background-color: var(--secondary);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* DataView personnalisation */
+.p-dataview .p-paginator {
+  margin-top: 30px;
+  background: transparent;
+  border: none;
+}
+
+.p-paginator .p-paginator-pages .p-paginator-page {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+}
+
+.p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
+  background-color: var(--primary);
+  color: white;
+}
+
+/* Rating étoiles (à ajouter pour chaque produit) */
+.product-rating {
+  display: flex;
+  gap: 2px;
+  margin: 10px 0;
+  color: var(--accent);
+  font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .banner {
+    height: 420px;
+    margin-bottom: 40px;
+  }
+  
+  .banner h1 {
+    font-size: 2.5rem;
+  }
+  
+  .banner p {
+    font-size: 1.25rem;
+    margin-bottom: 25px;
+  }
+  
+  .products-container::before {
+    font-size: 1.75rem;
+  }
+  
+  .grid {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .banner {
+    height: 380px;
+    margin-bottom: 30px;
+  }
+  
+  .banner h1 {
+    font-size: 2rem;
+  }
+  
+  .banner p {
+    font-size: 1.125rem;
+    margin-bottom: 20px;
+  }
+  
+  .banner button {
+    padding: 14px 28px;
+    font-size: 1rem;
+  }
+  
+  .products-container::before {
+    font-size: 1.5rem;
+  }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.grid > div {
+  animation: fadeInUp 0.7s ease backwards;
+}
+
+.grid > div:nth-child(1) { animation-delay: 0.1s; }
+.grid > div:nth-child(2) { animation-delay: 0.2s; }
+.grid > div:nth-child(3) { animation-delay: 0.3s; }
+.grid > div:nth-child(4) { animation-delay: 0.4s; }
+.grid > div:nth-child(5) { animation-delay: 0.5s; }
+.grid > div:nth-child(6) { animation-delay: 0.6s; }
+
+.banner button {
+  animation: pulse 2s infinite;
+}
+</style>
 <div class="home-container">
   <!-- Bannière -->
   <div class="banner">

@@ -1,6 +1,97 @@
+<style>
+  /* Main styles for the e-commerce homepage */
+:root {
+  --primary-color: #3498db;
+  --secondary-color: #2ecc71;
+  --accent-color: #e74c3c;
+  --background-color: #f8f9fa;
+  --text-color: #333;
+  --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --transition-speed: 0.3s;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: var(--text-color);
+  background: linear-gradient(-45deg, #3498db, #2980b9, #e74c3c, #c0392b);
+  background-size: 400% 400%;
+  animation: gradientBackground 15s ease infinite;
+}
+
+
+/* Toolbar styling */
+.p-toolbar {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: var(--box-shadow);
+  padding: 0 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: all var(--transition-speed) ease;
+}
+
+.p-toolbar:hover {
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+.p-toolbar-group-start img {
+  height: 48px;
+  width: auto;
+  transition: transform var(--transition-speed);
+}
+
+.p-toolbar-group-start img:hover {
+  transform: scale(1.1);
+}
+
+.p-toolbar-group-center {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.p-toolbar-group-end button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition: transform var(--transition-speed);
+}
+
+.p-toolbar-group-end button:hover {
+  transform: scale(1.1);
+}
+
+.pi-shopping-cart {
+  color: var(--primary-color);
+  transition: color var(--transition-speed);
+}
+
+.p-toolbar-group-end button:hover .pi-shopping-cart {
+  color: var(--accent-color);
+}
+
+.p-badge {
+  background-color: var(--accent-color);
+  transition: transform var(--transition-speed), background-color var(--transition-speed);
+}
+
+.p-toolbar-group-end button:hover .p-badge {
+  transform: scale(1.1);
+  background-color: #c0392b;
+}
+
+</style>
 <p-toolbar [style]="{ height: '100px' }">
     <div class="p-toolbar-group-start">
-        <img src="assets/icons/icon-72x72.png" alt="logo" />
+        <img src="assets/images/Free.png" alt="logo" />
         
     </div>
     <div class="p-toolbar-group-center">

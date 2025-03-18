@@ -1,4 +1,142 @@
 <!--Ce code est un composant Angular qui affiche une liste de produits avec des options pour en créer, modifier ou supprimer. Il utilise PrimeNG, une bibliothèque de composants UI pour Angular.-->
+
+<style>
+    /* Styles généraux */
+:host {
+  font-family: 'Roboto', 'Segoe UI', sans-serif;
+}
+
+/* Style du titre principal */
+.text-center.text-2xl {
+  color: #2c3e50;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.text-center.text-2xl::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #3498db, #2ecc71);
+  border-radius: 2px;
+}
+
+/* Style des cartes produit */
+p-card ::ng-deep .p-card {
+  transition: all 0.3s ease;
+  border: none;
+  border-radius: 12px;
+}
+
+p-card ::ng-deep .p-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Style des badges d'inventaire */
+.badge {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: white;
+}
+
+.INSTOCK {
+  background-color: #2ecc71;
+}
+
+.LOWSTOCK {
+  background-color: #f39c12;
+}
+
+.OUTOFSTOC {
+  background-color: #e74c3c;
+}
+
+/* Style des boutons */
+p-button ::ng-deep .p-button {
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+p-button ::ng-deep .p-button:hover {
+  transform: scale(1.05);
+}
+
+p-button ::ng-deep .p-button.p-button-success {
+  background: linear-gradient(135deg, #2ecc71, #27ae60);
+  border: none;
+}
+
+p-button ::ng-deep .p-button.p-button-secondary {
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  border: none;
+}
+
+p-button ::ng-deep .p-button.p-button-danger {
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  border: none;
+}
+
+/* Style du modal dialog */
+p-dialog ::ng-deep .p-dialog {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+p-dialog ::ng-deep .p-dialog-header {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+}
+
+/* Style pour le DataView */
+p-dataView ::ng-deep .p-dataview {
+  background: transparent;
+}
+
+p-dataView ::ng-deep .p-dataview .p-paginator {
+  background: transparent;
+  margin-top: 1rem;
+}
+
+/* Style pour les images */
+img {
+  border-radius: 8px 8px 0 0;
+  transition: all 0.5s ease;
+}
+
+p-card:hover ::ng-deep img {
+  transform: scale(1.05);
+}
+
+/* Style pour le texte des produits */
+h2.text-lg {
+  color: #34495e;
+  margin-bottom: 0.5rem;
+}
+
+p.text-gray-600 {
+  color: #7f8c8d;
+  font-style: italic;
+}
+
+/* Style pour la mise en page responsive */
+@media (max-width: 768px) {
+  p-dialog ::ng-deep .p-dialog {
+    width: 90vw !important;
+  }
+  
+  .grid {
+    padding: 0 1rem;
+  }
+}
+</style>
 <h1 class="text-center text-2xl font-bold my-4">Liste des produits</h1>
 
 <div class="flex justify-center my-4">
